@@ -2,6 +2,7 @@ package dev.tanvx.wallet_service.domain.transaction.entity;
 
 import dev.tanvx.wallet_service.domain.user.entity.User;
 import dev.tanvx.wallet_service.infrastructure.enums.TransactionStatus;
+import dev.tanvx.wallet_service.infrastructure.enums.TransactionType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -39,6 +40,10 @@ public class Transaction {
 
   @Column(name = "timestamp", nullable = false)
   private LocalDateTime timestamp;
+
+  @Enumerated(EnumType.STRING)
+  @Column(name = "transaction_type", nullable = false)
+  private TransactionType transactionType;
 
   @Enumerated(EnumType.STRING)
   @Column(name = "transaction_status", nullable = false)
