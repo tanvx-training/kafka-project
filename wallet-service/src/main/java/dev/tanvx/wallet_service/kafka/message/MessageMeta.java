@@ -1,8 +1,8 @@
-package dev.tanvx.wallet_service.infrastructure.dto;
+package dev.tanvx.wallet_service.kafka.message;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import dev.tanvx.wallet_service.infrastructure.enums.EventType;
+import dev.tanvx.wallet_service.kafka.events.EventType;
 import lombok.Builder;
 import lombok.Data;
 

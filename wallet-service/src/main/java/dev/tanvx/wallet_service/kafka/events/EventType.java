@@ -1,4 +1,4 @@
-package dev.tanvx.wallet_service.infrastructure.enums;
+package dev.tanvx.wallet_service.kafka.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

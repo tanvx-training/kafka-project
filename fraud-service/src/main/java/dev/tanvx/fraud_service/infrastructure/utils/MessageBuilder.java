@@ -1,8 +1,9 @@
-package dev.tanvx.wallet_service.infrastructure.utils;
+package dev.tanvx.fraud_service.infrastructure.utils;
 
-import dev.tanvx.wallet_service.infrastructure.dto.KafkaMessage;
-import dev.tanvx.wallet_service.infrastructure.dto.MessageMeta;
-import dev.tanvx.wallet_service.infrastructure.enums.EventType;
+
+import dev.tanvx.fraud_service.infrastructure.dto.KafkaMessage;
+import dev.tanvx.fraud_service.infrastructure.dto.MessageMeta;
+import dev.tanvx.fraud_service.kafka.events.EventType;
 import java.util.UUID;
 
 public class MessageBuilder {

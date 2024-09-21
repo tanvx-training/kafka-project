@@ -1,8 +1,8 @@
-package dev.tanvx.wallet_service.domain.transaction.producer;
+package dev.tanvx.wallet_service.kafka.producer;
 
-import dev.tanvx.wallet_service.domain.transaction.dto.response.TransactionCreateResponse;
-import dev.tanvx.wallet_service.infrastructure.enums.EventType;
-import dev.tanvx.wallet_service.infrastructure.utils.MessageBuilder;
+import dev.tanvx.wallet_service.kafka.events.EventType;
+import dev.tanvx.wallet_service.kafka.events.TransactionEvent;
+import dev.tanvx.wallet_service.kafka.utils.MessageBuilder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -21,18 +21,18 @@ public class TransactionProducerImpl implements TransactionProducer {
   private final KafkaTemplate<String, Object> kafkaTemplate;
 
   @Override
-  public void send(TransactionCreateResponse transaction) {
+  public void send(TransactionEvent transactionEvent) {
 
     try {
       var message = MessageBuilder.build(
           SERVICE,
           EventType.EVENT,
-          transaction.getTransactionType().name(),
-          transaction
+          transactionEvent.getTransactionType().name(),
+          transactionEvent
       );
 
       kafkaTemplate.send(TRANSACTION_TOPIC, message);
-      log.info("Produced a message to topic: {}, value: {}", TRANSACTION_TOPIC, transaction);
+      log.info("Produced a message to topic: {}, value: {}", TRANSACTION_TOPIC, transactionEvent);
     } catch (Exception e) {
       log.error("Failed to produce the message to topic: " + TRANSACTION_TOPIC);
       e.printStackTrace();

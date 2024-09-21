@@ -1,4 +1,4 @@
-package dev.tanvx.wallet_service.infrastructure.dto;
+package dev.tanvx.wallet_service.kafka.message;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
